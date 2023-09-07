@@ -32,6 +32,9 @@ mongoose
   .then(() => console.log("Connected to mongoDB"))
   .catch((e) => console.log(e));
 
+app.get("/", (req, res) => {
+  res.send("Server Running");
+});
 app.use("/api", require("./routes/userRoutes"));
 app.use("/api", require("./routes/itemRouter"));
 
