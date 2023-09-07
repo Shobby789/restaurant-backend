@@ -35,46 +35,6 @@ mongoose
 app.use("/api", require("./routes/userRoutes"));
 app.use("/api", require("./routes/itemRouter"));
 
-// app.post("/register", async (req, res) => {
-//   const { userName, address, phoneNumber, email, password } = req.body;
-//   console.log("body data: ", req.body);
-//   const encryptedPassword = await bcrypt.hash(password, 10);
-//   try {
-//     const oldUser = await User.findOne({ email });
-//     if (oldUser) {
-//       return res.json({ error: "User Exists" });
-//     }
-//     await User.create({
-//       email,
-//       password: encryptedPassword,
-//     });
-//     res.send({ status: "ok user created" });
-//   } catch (error) {
-//     res.send({ status: "error" });
-//   }
-// });
-
-// app.post("/login", async (req, res) => {
-//   const { email, password } = req.body;
-
-//   const user = await User.findOne({ email });
-//   if (!user) {
-//     return res.json({ error: "User Not found" });
-//   }
-//   if (await bcrypt.compare(password, user.password)) {
-//     const token = jwt.sign({ email: user.email }, SECRET_KEY, {
-//       expiresIn: "1hr",
-//     });
-
-//     if (res.status(201)) {
-//       return res.json({ status: "ok", data: token });
-//     } else {
-//       return res.json({ error: "error" });
-//     }
-//   }
-//   res.json({ status: "error", error: "InvAlid Password" });
-// });
-
 app.post("/home", async (req, res) => {
   const { token } = req.body;
   try {
